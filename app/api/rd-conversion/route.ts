@@ -34,7 +34,11 @@ export async function POST(request: NextRequest) {
         name: body.nome,
         phone: normalizePhone(body.telefone),
         company_name: body.empresa,
-        cf_employees: body.funcionarios,
+        cf_funcionarios: body.funcionarios,
+        traffic_source: body.traffic_source || "",
+        traffic_medium: body.traffic_medium || "",
+        traffic_campaign: body.traffic_campaign || "",
+        traffic_value: body.traffic_value || "",
       },
     };
 

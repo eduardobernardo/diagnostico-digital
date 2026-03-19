@@ -37,6 +37,15 @@ export function FormSection() {
     setIsSubmitting(true);
 
     const formData = new FormData(e.currentTarget);
+
+    // Read __trf.src cookie (RD Station tracking cookie)
+    const cookieString = typeof document !== "undefined" ? document.cookie : "";
+    const trfSrc =
+      cookieString
+        .split("; ")
+        .find((row) => row.startsWith("__trf.src="))
+        ?.split("=")[1] ?? "";
+
     const leadData = {
       nome: String(formData.get("nome") ?? ""),
       email: String(formData.get("email") ?? ""),
@@ -56,6 +65,7 @@ export function FormSection() {
           empresa: formData.get("empresa"),
           funcionarios: formData.get("funcionarios"),
           conversion_identifier: "LP Diagnóstico Digital",
+          traffic_source: trfSrc,
         }),
       });
 
