@@ -1,0 +1,2 @@
+- `app/api/rd-conversion/route.ts` now fires the RD Station conversion request in the background so the client always receives an immediate `{ success: true }` response after validation passes.
+- RD Station submissions normalize `telefone` with `normalizePhone` before sending `payload.phone`, and server-side failures are logged with `console.error` without surfacing to the client.

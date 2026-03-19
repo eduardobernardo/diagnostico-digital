@@ -1,30 +1,68 @@
-"use client";
-
+import dynamic from "next/dynamic";
 import { HeroSection } from "@/components/landing/hero-section";
-import { ProblemSection } from "@/components/landing/problem-section";
-import { SolutionSection } from "@/components/landing/solution-section";
-import { AboutSection } from "@/components/landing/about-section";
-import { DiagnosticSection } from "@/components/landing/diagnostic-section";
-import { FaqSection } from "@/components/landing/faq-section";
-import { FormSection } from "@/components/landing/form-section";
-import { LandingFooter } from "@/components/landing/landing-footer";
-import { LandingHeader } from "@/components/landing/landing-header";
+import { LandingHeaderClient } from "@/components/landing/landing-header-client";
+
+// Dynamic imports for below-the-fold sections
+const ProblemSection = dynamic(
+  () =>
+    import("@/components/landing/problem-section").then((mod) => ({ default: mod.ProblemSection })),
+  {
+    loading: () => <div className="h-96 bg-[--dark-surface-primary]" />,
+  },
+);
+
+const SolutionSection = dynamic(
+  () =>
+    import("@/components/landing/solution-section").then((mod) => ({
+      default: mod.SolutionSection,
+    })),
+  {
+    loading: () => <div className="h-96 bg-[--dark-surface-secondary]" />,
+  },
+);
+
+const AboutSection = dynamic(
+  () => import("@/components/landing/about-section").then((mod) => ({ default: mod.AboutSection })),
+  {
+    loading: () => <div className="h-96 bg-[--dark-surface-primary]" />,
+  },
+);
+
+const DiagnosticSection = dynamic(
+  () =>
+    import("@/components/landing/diagnostic-section").then((mod) => ({
+      default: mod.DiagnosticSection,
+    })),
+  {
+    loading: () => <div className="h-96 bg-[--dark-surface-secondary]" />,
+  },
+);
+
+const FormSection = dynamic(
+  () => import("@/components/landing/form-section").then((mod) => ({ default: mod.FormSection })),
+  {
+    loading: () => <div className="h-[600px] bg-[--dark-surface-primary]" />,
+  },
+);
+
+const LandingFooter = dynamic(
+  () =>
+    import("@/components/landing/landing-footer").then((mod) => ({ default: mod.LandingFooter })),
+  {
+    loading: () => <div className="h-32 bg-[#212529]" />,
+  },
+);
 
 export default function LandingPage() {
-  const scrollToForm = () => {
-    document.getElementById("formulario")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <div className="min-h-screen bg-[--dark-surface-primary]">
-      <LandingHeader onCtaClick={scrollToForm} />
+      <LandingHeaderClient />
       <main className="pt-[var(--header-height)]">
-        <HeroSection onCtaClick={scrollToForm} />
+        <HeroSection />
         <ProblemSection />
         <SolutionSection />
         <AboutSection />
         <DiagnosticSection />
-        {/* <FaqSection /> */}
         <FormSection />
       </main>
       <LandingFooter />

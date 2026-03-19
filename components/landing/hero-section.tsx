@@ -1,12 +1,7 @@
-"use client";
-
 import { ArrowDown, Star, Users, Award } from "lucide-react";
+import { ScrollButton } from "./scroll-button";
 
-interface HeroSectionProps {
-  onCtaClick: () => void;
-}
-
-export function HeroSection({ onCtaClick }: HeroSectionProps) {
+export function HeroSection() {
   return (
     <section className="relative min-h-[calc(100vh-var(--header-height))] overflow-hidden bg-[--dark-surface-primary] pb-10">
       <div className="absolute left-0 top-0 z-0 grid h-full w-full grid-cols-[clamp(28px,10vw,120px)_auto_clamp(28px,10vw,120px)] border-b border-white/10">
@@ -20,7 +15,6 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
       <figure className="pointer-events-none absolute bottom-[-50px] right-[7vw] z-20 hidden aspect-square w-[30vw] rounded-full bg-[#B3D235]/15 blur-[100px] md:block" />
 
       <div className="relative z-10 flex flex-col divide-y divide-white/10 pt-[35px]">
-        {/* Tag */}
         <div
           className="animate-fade-in-up flex flex-col items-center justify-end"
           style={{ animationDelay: "0ms" }}
@@ -36,13 +30,10 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Headline + Subtitle */}
         <div>
           <div className="mx-auto flex min-h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-4 px-2 py-8 sm:px-16 lg:px-24">
             <h1 className="!max-w-screen-lg text-pretty text-center text-[clamp(28px,6vw,56px)] font-bold leading-[1.1] tracking-[-1.44px] text-white md:tracking-[-2.16px]">
-              <span className="animate-fade-in-up inline-block" style={{ animationDelay: "100ms" }}>
-                Seu marketing digital{" "}
-              </span>
+              <span className="animate-fade-in-up inline-block">Seu marketing digital </span>
               <span
                 className="animate-fade-in-up inline-block text-[#B3D235]"
                 style={{ animationDelay: "200ms" }}
@@ -66,7 +57,6 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* Highlight box — glassmorphism */}
         <div
           className="animate-fade-in-up flex items-center justify-center px-4 py-6"
           style={{ animationDelay: "450ms" }}
@@ -81,27 +71,22 @@ export function HeroSection({ onCtaClick }: HeroSectionProps) {
           </div>
         </div>
 
-        {/* CTA */}
         <div
           className="animate-fade-in-up flex items-start justify-center px-8 pt-6 sm:px-24"
           style={{ animationDelay: "500ms" }}
         >
           <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[450px]">
-            <button
-              onClick={onCtaClick}
-              className="group relative flex h-16 w-full items-center justify-center gap-2 bg-[#B3D235] text-base font-semibold text-[#212529] transition-all duration-300 hover:bg-[#c5e247] hover:shadow-xl hover:shadow-[#B3D235]/30"
-            >
+            <ScrollButton className="overflow-visible">
               <span className="absolute -inset-1 animate-pulse rounded-sm bg-[#B3D235]/20" />
               <ArrowDown className="relative z-10 h-5 w-5 transition-transform group-hover:translate-y-0.5" />
               <span className="relative z-10">Solicite o Diagnóstico Digital da Index</span>
-            </button>
+            </ScrollButton>
             <span className="mt-3 text-sm text-white/50">
               Descubra onde seu dinheiro está sendo mal investido
             </span>
           </div>
         </div>
 
-        {/* Social proof badges — below CTA */}
         <div
           className="animate-fade-in-up flex items-center justify-center px-4 py-5"
           style={{ animationDelay: "650ms" }}

@@ -14,9 +14,17 @@ import {
 export function FormSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [consentGiven, setConsentGiven] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setSubmitAttempted(true);
+
+    if (!consentGiven) {
+      return;
+    }
+
     setIsSubmitting(true);
 
     await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -196,6 +204,34 @@ export function FormSection() {
                   <option value="500+">Mais de 500</option>
                 </select>
               </div>
+            </div>
+
+            <div className="mt-6">
+              <div className="flex items-start gap-3">
+                <div className="flex h-6 items-center">
+                  <input
+                    type="checkbox"
+                    id="lgpd-consent"
+                    checked={consentGiven}
+                    onChange={(e) => {
+                      setConsentGiven(e.target.checked);
+                      if (submitAttempted) setSubmitAttempted(false);
+                    }}
+                    className="size-4 rounded border-[#495057] bg-[#373D42] text-[#B3D235] focus:ring-2 focus:ring-[#B3D235]/20 focus:ring-offset-0"
+                  />
+                </div>
+                <label htmlFor="lgpd-consent" className="text-sm text-[#F8F9FA]">
+                  Concordo em receber contato da equipe INDEX sobre o Diagnóstico Digital.{" "}
+                  <a href="#" className="text-[#B3D235] hover:underline">
+                    Política de Privacidade
+                  </a>
+                </label>
+              </div>
+              {submitAttempted && !consentGiven && (
+                <p className="mt-2 text-sm text-red-400">
+                  Você precisa aceitar os termos para continuar.
+                </p>
+              )}
             </div>
 
             <button

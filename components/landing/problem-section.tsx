@@ -1,4 +1,3 @@
-"use client";
 
 import { AlertCircle, BarChart3, Layers, FileQuestion } from "lucide-react";
 import { FeatureCard } from "./feature-card";

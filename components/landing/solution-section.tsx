@@ -1,4 +1,3 @@
-"use client";
 
 import { CheckCircle2, TrendingUp, Target, LineChart } from "lucide-react";
 import { FeatureCard } from "./feature-card";

@@ -1,0 +1,1 @@
+- Kept the RD Station call non-blocking by wrapping the `fetch` in a detached async function with `AbortController`, which preserves the silent-error requirement while still enforcing a 10-second timeout.

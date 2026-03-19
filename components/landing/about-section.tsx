@@ -1,4 +1,3 @@
-"use client";
 
 import { Building2, Users, BarChart2 } from "lucide-react";
 import { FeatureCard } from "./feature-card";
