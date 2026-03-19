@@ -1,2 +1,4 @@
 - `app/api/rd-conversion/route.ts` now fires the RD Station conversion request in the background so the client always receives an immediate `{ success: true }` response after validation passes.
 - RD Station submissions normalize `telefone` with `normalizePhone` before sending `payload.phone`, and server-side failures are logged with `console.error` without surfacing to the client.
+- `components/landing/form-section.tsx` throttles submissions with a 2-second `useRef` timestamp before consent and network logic, then always flips the success UI in `finally` to keep the UX silent on API failures.
+- `app/layout.tsx` renders `Analytics` after `{children}` so client-side tracking scripts are available across the landing page and the form can call `trackLeadSubmission` on successful `/api/rd-conversion` responses.

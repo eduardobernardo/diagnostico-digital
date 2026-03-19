@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { trackLeadSubmission } from "@/lib/analytics";
+import { useRef, useState, type FormEvent } from "react";
 import {
   CheckCircle2,
   Send,
@@ -12,6 +13,7 @@ import {
 } from "lucide-react";
 
 export function FormSection() {
+  const lastSubmitAttemptRef = useRef(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [consentGiven, setConsentGiven] = useState(false);
@@ -19,6 +21,13 @@ export function FormSection() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const now = Date.now();
+    if (now - lastSubmitAttemptRef.current < 2000) {
+      return;
+    }
+
+    lastSubmitAttemptRef.current = now;
     setSubmitAttempted(true);
 
     if (!consentGiven) {
@@ -27,10 +36,37 @@ export function FormSection() {
 
     setIsSubmitting(true);
 
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const formData = new FormData(e.currentTarget);
+    const leadData = {
+      nome: String(formData.get("nome") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      empresa: String(formData.get("empresa") ?? ""),
+    };
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+    try {
+      const response = await fetch("/api/rd-conversion", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nome: formData.get("nome"),
+          telefone: formData.get("telefone"),
+          email: formData.get("email"),
+          empresa: formData.get("empresa"),
+          funcionarios: formData.get("funcionarios"),
+          conversion_identifier: "LP Diagnóstico Digital",
+        }),
+      });
+
+      if (response.ok) {
+        trackLeadSubmission(leadData);
+      }
+    } catch {
+    } finally {
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
   };
 
   const benefits = [
