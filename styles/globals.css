@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* INDEX Brand Colors */
+    --index-primary: #b3d235;
+    --index-secondary: #212529;
+    --index-accent: #00c3de;
+
+    /* Original template variables adapted for INDEX */
+    --accent-500: #b3d235;
+    --accent-500-40: rgba(179, 210, 53, 0.4);
+    --accent-600: #9bbd2a;
+    --text-on-accent-primary: #212529;
+
+    /* Surface colors */
+    --surface-primary: #ffffff;
+    --surface-secondary: #f8f9fa;
+    --surface-tertiary: #e9ecef;
+
+    /* Text colors */
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-tertiary: #6c757d;
+
+    /* Border */
+    --border: #dee2e6;
+    --control: #b3d235;
+
+    /* Dark mode */
+    --dark-surface-primary: #212529;
+    --dark-surface-secondary: #2c3136;
+    --dark-surface-tertiary: #373d42;
+    --dark-text-primary: #f8f9fa;
+    --dark-text-secondary: #ced4da;
+    --dark-text-tertiary: #adb5bd;
+    --dark-border: #495057;
+
+    /* Layout */
+    --header-height: 64px;
+    --radius: 0.5rem;
+
+    /* shadcn/ui HSL Variables */
+    --background: 0 0% 100%;
+    --foreground: 210 11% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+    --primary: 72 66% 52%;
+    --primary-foreground: 210 11% 15%;
+    --secondary: 210 11% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 20% 98%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 187 100% 44%;
+    --accent-foreground: 210 11% 15%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 72 66% 52%;
+
+    /* Text rendering */
+    text-rendering: geometricprecision;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .dark {
+    --accent-500: #b3d235;
+    --accent-500-40: rgba(179, 210, 53, 0.25);
+    --accent-600: #c5e04a;
+    --text-on-accent-primary: #212529;
+
+    --surface-primary: #212529;
+    --surface-secondary: #2c3136;
+    --surface-tertiary: #373d42;
+
+    --text-primary: #f8f9fa;
+    --text-secondary: #ced4da;
+    --text-tertiary: #adb5bd;
+
+    --border: #495057;
+
+    --background: 210 11% 15%;
+    --foreground: 0 0% 98%;
+    --card: 210 11% 18%;
+    --card-foreground: 0 0% 98%;
+    --popover: 210 11% 15%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 72 66% 52%;
+    --primary-foreground: 210 11% 15%;
+    --secondary: 210 11% 25%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 210 11% 25%;
+    --muted-foreground: 0 0% 64%;
+    --accent: 187 100% 44%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 11% 25%;
+    --input: 210 11% 25%;
+    --ring: 72 66% 52%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-[--border];
+  }
+  body {
+    @apply bg-[--surface-primary] text-[--text-primary] dark:bg-[--dark-surface-primary] dark:text-[--dark-text-primary];
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+}
+
+/* Scroll reveal animation */
+@keyframes scrollReveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  animation: scrollReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Line animation keyframes */
+@keyframes lineAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animated-line {
+  animation: lineAnimation 3s linear infinite;
+  transform-origin: right;
+  height: 1px;
+  transform: translateX(-100%);
+}
+
+.animated-line::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background: transparent;
+  box-shadow: 0 0 30px rgba(179, 210, 53, 0.5);
+}
+
+.animated-line:nth-child(1) {
+  animation-delay: 0.5s;
+}
+.animated-line:nth-child(2) {
+  animation-delay: 1.2s;
+}
+.animated-line:nth-child(3) {
+  animation-delay: 2.1s;
+}
+.animated-line:nth-child(4) {
+  animation-delay: 3.3s;
+}
+.animated-line:nth-child(5) {
+  animation-delay: 1.8s;
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 60px rgba(179, 210, 53, 0.3);
+}
+
+.glow-accent {
+  box-shadow: 0 0 60px rgba(0, 195, 222, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-in-up,
+  .scroll-reveal,
+  .animated-line {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
