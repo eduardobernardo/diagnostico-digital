@@ -18,7 +18,6 @@ export function LandingFooter() {
 
         {/* Social + Contact */}
         <div className="flex items-center gap-3">
-          <div className="h-4 w-px bg-white/10" />
           <a
             href="https://www.linkedin.com/company/indexdigitalcommerce"
             className="flex size-8 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-[#B3D235]/50 hover:text-[#B3D235]"
