@@ -17,7 +17,7 @@ export const metadata = {
   metadataBase: new URL("https://diagnostico.indexdc.com.br"),
   title: "Diagnóstico Digital | INDEX Digital Commerce",
   description:
-    "Descubra onde seu dinheiro está sendo mal investido em marketing digital. Solicite o Diagnóstico Digital da INDEX e transforme marketing em investimento.",
+    "Descubra exatamente onde seu budget de marketing está vazando. Em 48h, receba um mapa estratégico para escalar seu resultado com previsibilidade.",
   keywords: [
     "marketing digital",
     "diagnóstico digital",
@@ -26,9 +26,9 @@ export const metadata = {
     "INDEX Digital Commerce",
   ],
   openGraph: {
-    title: "Seu marketing digital gera resultado ou só consome dinheiro?",
+    title: "Seu marketing traz cliente ou só traz relatório?",
     description:
-      "Marketing sem diagnóstico não é crescimento. É desperdício disfarçado de ação. Solicite o Diagnóstico Digital da INDEX.",
+      "Pare de queimar dinheiro com ações que não trazem ROI. Solicite seu diagnóstico gratuito de 48h com a equipe da INDEX.",
     type: "website",
     url: "https://diagnostico.indexdc.com.br",
     siteName: "INDEX Digital Commerce",
@@ -43,8 +43,8 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Diagnóstico Digital | INDEX Digital Commerce",
-    description: "Descubra onde seu dinheiro está sendo mal investido em marketing digital.",
+    title: "Seu marketing traz cliente ou só traz relatório?",
+    description: "Descubra onde seu budget de marketing está vazando com o diagnóstico da INDEX.",
     images: ["/og-image.webp"],
   },
   alternates: {
@@ -62,7 +62,7 @@ export const viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         {/* Preconnect to Google Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

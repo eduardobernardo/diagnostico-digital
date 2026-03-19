@@ -41,7 +41,7 @@ export function LandingHeaderClient() {
           </span>
         </div>
 
-        <ScrollButton variant="header">Solicitar Diagnóstico</ScrollButton>
+        <ScrollButton variant="header">Quero meu diagnóstico →</ScrollButton>
       </div>
     </header>
   );

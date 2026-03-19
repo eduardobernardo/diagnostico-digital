@@ -6,29 +6,34 @@ import { cn } from "@/lib/utils";
 
 const faqs = [
   {
-    question: "O que é o Diagnóstico Digital da Index?",
+    question: "O diagnóstico é realmente gratuito?",
     answer:
-      "É uma análise estratégica completa do seu marketing digital atual. Avaliamos todos os seus canais, campanhas e investimentos para identificar onde está perdendo dinheiro e onde estão as oportunidades reais de crescimento.",
+      "Sim, 100%. Você recebe a análise completa sem pagar nada. Se quiser continuar com a Index depois, ótimo. Se não quiser, você fica com o relatório e nossa recomendação.",
   },
   {
-    question: "Quanto tempo leva para receber o diagnóstico?",
+    question: "E se eu já tiver uma equipe de marketing?",
     answer:
-      "Após o preenchimento do formulário, nossa equipe entra em contato em até 24 horas para agendar uma reunião inicial. O diagnóstico completo é entregue em até 7 dias úteis após a coleta de todas as informações necessárias.",
+      "Perfeito. O diagnóstico serve justamente para dar direção ao seu time. Muitas empresas que atendemos têm equipe interna — o diagnóstico mostra para onde apontar os esforços deles.",
   },
   {
-    question: "O diagnóstico é gratuito?",
+    question: "Quanto tempo leva o processo?",
     answer:
-      "A primeira conversa de análise inicial é gratuita e sem compromisso. Nela, já conseguimos identificar os principais pontos de atenção do seu marketing digital.",
+      "A call de diagnóstico dura cerca de 45 minutos. Seu relatório completo chega em até 48h depois. Sem enrolação.",
   },
   {
-    question: "Preciso ter um investimento mínimo em marketing?",
+    question: "Meus dados estão seguros?",
     answer:
-      "Não existe um valor mínimo obrigatório. O diagnóstico é útil tanto para empresas que estão começando quanto para aquelas que já investem significativamente em marketing digital.",
+      "Com certeza. Seguimos todas as diretrizes da LGPD. Seus dados são usados apenas para o diagnóstico e nunca são vendidos ou compartilhados.",
   },
   {
     question: "Como a Index é diferente de outras agências?",
     answer:
       "Nossa abordagem começa pelo diagnóstico, não pela execução. Não vendemos pacotes prontos. Cada estratégia é desenvolvida com base na realidade e nos objetivos específicos da sua empresa.",
+  },
+  {
+    question: "E se eu não gostar do diagnóstico?",
+    answer:
+      "Você não paga nada, então não há risco. Mas se quiser, pode nos dizer o que faltou — feedbacks assim nos ajudam a melhorar.",
   },
 ];
 
@@ -38,8 +43,8 @@ export function FaqSection() {
   return (
     <section className="relative overflow-hidden bg-[--surface-primary] py-16 dark:bg-[--dark-surface-primary] md:py-24">
       {/* Blur decorations */}
-      <figure className="bg-[#00C3DE]/8 pointer-events-none absolute -right-[15%] top-[30%] z-0 aspect-square w-[400px] rounded-full blur-[120px]" />
-      <figure className="bg-[#B3D235]/8 pointer-events-none absolute -left-[10%] bottom-[20%] z-0 aspect-square w-[300px] rounded-full blur-[100px]" />
+      <figure className="pointer-events-none absolute -right-[15%] top-[30%] z-0 aspect-square w-[400px] rounded-full bg-[#00C3DE]/8 blur-[120px]" />
+      <figure className="pointer-events-none absolute -left-[10%] bottom-[20%] z-0 aspect-square w-[300px] rounded-full bg-[#B3D235]/8 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-[1140px] px-6">
         <div className="mx-auto max-w-3xl">
@@ -52,7 +57,7 @@ export function FaqSection() {
             </div>
 
             <h2 className="text-2xl font-bold leading-tight text-[--text-primary] dark:text-[--dark-text-primary] md:text-4xl">
-              Dúvidas? Temos as <span className="text-[#B3D235]">respostas</span>.
+              Perguntas que <span className="text-[#B3D235]">todo mundo faz</span>
             </h2>
           </div>
 

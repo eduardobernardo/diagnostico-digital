@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 interface FeatureCardProps {
   icon: LucideIcon;
   text: string;
+  detail?: string;
   number?: number;
   variant?: "problem" | "solution" | "about";
   className?: string;
@@ -12,6 +13,7 @@ interface FeatureCardProps {
 export function FeatureCard({
   icon: Icon,
   text,
+  detail,
   number,
   variant = "solution",
   className,
@@ -84,17 +86,28 @@ export function FeatureCard({
           <Icon className={cn("size-5", colors.icon)} />
         </div>
 
-        {/* Text */}
-        <p
-          className={cn(
-            "text-sm font-medium leading-snug",
-            variant === "problem"
-              ? "text-white/90"
-              : "text-[--text-primary] dark:text-[--dark-text-primary]",
+        <div className="flex flex-col gap-1">
+          <p
+            className={cn(
+              "text-sm font-bold leading-snug uppercase tracking-wide",
+              variant === "problem"
+                ? "text-white/95"
+                : "text-[--text-primary] dark:text-[--dark-text-primary]",
+            )}
+          >
+            {text}
+          </p>
+          {detail && (
+            <p
+              className={cn(
+                "text-xs leading-snug",
+                variant === "problem" ? "text-white/40" : "text-[--text-tertiary]",
+              )}
+            >
+              {detail}
+            </p>
           )}
-        >
-          {text}
-        </p>
+        </div>
       </div>
 
       {/* Hover glow effect */}

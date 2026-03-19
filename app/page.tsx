@@ -38,6 +38,13 @@ const DiagnosticSection = dynamic(
   },
 );
 
+const FaqSection = dynamic(
+  () => import("@/components/landing/faq-section").then((mod) => ({ default: mod.FaqSection })),
+  {
+    loading: () => <div className="h-96 bg-[--dark-surface-primary]" />,
+  },
+);
+
 const FormSection = dynamic(
   () => import("@/components/landing/form-section").then((mod) => ({ default: mod.FormSection })),
   {
@@ -63,9 +70,11 @@ export default function LandingPage() {
         <SolutionSection />
         <AboutSection />
         <DiagnosticSection />
+        <FaqSection />
         <FormSection />
       </main>
       <LandingFooter />
     </div>
   );
 }
+

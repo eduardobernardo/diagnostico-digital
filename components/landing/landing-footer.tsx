@@ -1,21 +1,35 @@
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, Mail } from "lucide-react";
 
 export function LandingFooter() {
   return (
     <footer className="border-t border-white/10 bg-[--dark-surface-primary] py-6">
       <div className="mx-auto flex max-w-[1140px] flex-col items-center justify-between gap-4 px-6 sm:flex-row">
         {/* Brand */}
-        <div className="flex items-center gap-3">
-          <span className="text-lg font-bold text-white">
-            INDE<span className="text-[#B3D235]">X</span>
-          </span>
-          <span className="text-xs text-white/40">
-            &copy; {new Date().getFullYear()} Todos os direitos reservados.
+        <div className="flex flex-col items-center gap-1 sm:items-start">
+          <div className="flex items-center gap-3">
+            <span className="text-lg font-bold text-white">
+              INDE<span className="text-[#B3D235]">X</span>
+            </span>
+            <span className="text-xs text-white/40" suppressHydrationWarning>
+              &copy; {new Date().getFullYear()} Todos os direitos reservados.
+            </span>
+          </div>
+          <span className="text-xs text-white/30">
+            Transformando marketing em resultado desde 2001 &bull; Remoto
           </span>
         </div>
 
-        {/* Social */}
+        {/* Social + Contact */}
         <div className="flex items-center gap-3">
+          <a
+            href="mailto:falecom@indexdc.com.br"
+            className="flex items-center gap-1.5 text-xs text-white/40 transition-colors hover:text-[#B3D235]"
+            aria-label="E-mail"
+          >
+            <Mail className="size-3.5" />
+            <span className="hidden sm:inline">falecom@indexdc.com.br</span>
+          </a>
+          <div className="h-4 w-px bg-white/10" />
           <a
             href="https://www.linkedin.com/company/indexdigitalcommerce"
             className="flex size-8 items-center justify-center rounded-full border border-white/10 text-white/50 transition-colors hover:border-[#B3D235]/50 hover:text-[#B3D235]"

@@ -1,4 +1,4 @@
-import { ArrowDown, Star, Users, Award } from "lucide-react";
+import { ArrowDown, Star, Users, TrendingUp } from "lucide-react";
 import { ScrollButton } from "./scroll-button";
 
 export function HeroSection() {
@@ -25,7 +25,7 @@ export function HeroSection() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-[#B3D235]"></span>
             </span>
             <p className="text-sm tracking-tight text-white/70">
-              Consultoria Especializada em Marketing Digital
+              Diagnóstico Gratuito de Marketing Digital
             </p>
           </div>
         </div>
@@ -33,56 +33,82 @@ export function HeroSection() {
         <div>
           <div className="mx-auto flex min-h-[288px] max-w-[80vw] shrink-0 flex-col items-center justify-center gap-4 px-2 py-8 sm:px-16 lg:px-24">
             <h1 className="!max-w-screen-lg text-pretty text-center text-[clamp(28px,6vw,56px)] font-bold leading-[1.1] tracking-[-1.44px] text-white md:tracking-[-2.16px]">
-              <span className="animate-fade-in-up inline-block">Seu marketing digital </span>
+              <span className="animate-fade-in-up inline-block">Seu marketing</span>{" "}
               <span
                 className="animate-fade-in-up inline-block text-[#B3D235]"
                 style={{ animationDelay: "200ms" }}
               >
-                gera resultado
+                traz cliente
               </span>
               <br className="hidden md:block" />
               <span className="animate-fade-in-up inline-block" style={{ animationDelay: "300ms" }}>
                 {" "}
-                ou só consome dinheiro todo mês?
+                ou só traz relatório?
               </span>
             </h1>
             <p
               className="text-md animate-fade-in-up max-w-2xl text-pretty text-center text-white/70 md:text-lg"
               style={{ animationDelay: "400ms" }}
             >
-              Se você investe em anúncios, redes sociais ou marketing digital e não consegue dizer,
-              com clareza, o que realmente traz retorno, o problema não é falta de esforço. É falta
-              de <span className="font-semibold text-[#B3D235]">estratégia</span>.
+              Você investe em anúncios, redes sociais e campanhas, mas não sabe o que realmente traz
+              cliente? Em 48 horas, nosso diagnóstico mostra exatamente onde está o{" "}
+              <span className="font-semibold text-[#B3D235]">vazamento</span>.
             </p>
           </div>
         </div>
 
         <div
           className="animate-fade-in-up flex items-center justify-center px-4 py-6"
-          style={{ animationDelay: "450ms" }}
+          style={{ animationDelay: "550ms" }}
         >
-          <div className="relative max-w-2xl overflow-hidden border border-[#B3D235]/20 bg-[#B3D235]/5 p-6 backdrop-blur-xl">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#B3D235]/10 via-transparent to-[#00C3DE]/5" />
-            <p className="relative z-10 text-center text-lg text-white/80">
-              Marketing sem diagnóstico não é crescimento.
-              <br />É <span className="font-semibold text-[#B3D235]">desperdício</span> disfarçado
-              de ação.
-            </p>
+          <div className="relative w-full max-w-2xl overflow-hidden border border-white/5 bg-white/[0.02] p-6 backdrop-blur-md">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#B3D235]/5 via-transparent to-[#00C3DE]/5" />
+
+            <div className="relative z-10 flex flex-col items-center justify-center gap-10 sm:flex-row sm:gap-0">
+              {/* Lado Ruim */}
+              <div className="flex flex-col items-center text-center sm:flex-1">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/5">
+                  <span className="text-sm font-bold text-white/30">✕</span>
+                </div>
+                <div className="mt-3">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-white/30">
+                    Sem Diagnóstico
+                  </p>
+                  <p className="mt-1 text-lg font-medium text-white/60">Dinheiro no escuro</p>
+                </div>
+              </div>
+
+              {/* Divisor Desktop */}
+              <div className="hidden h-12 w-px bg-white/10 sm:mx-12 sm:block" />
+
+              {/* Lado Bom */}
+              <div className="flex flex-col items-center text-center sm:flex-1">
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#B3D235]/20">
+                  <span className="text-sm font-bold text-[#B3D235]">✓</span>
+                </div>
+                <div className="mt-3">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#B3D235]/70">
+                    Com Diagnóstico
+                  </p>
+                  <p className="mt-1 text-lg font-bold text-white">Escala com previsibilidade</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         <div
-          className="animate-fade-in-up flex items-start justify-center px-8 pt-6 sm:px-24"
-          style={{ animationDelay: "500ms" }}
+          className="animate-fade-in-up flex items-start justify-center px-8 pt-4 sm:px-24"
+          style={{ animationDelay: "450ms" }}
         >
-          <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[450px]">
+          <div className="flex w-full max-w-[80vw] flex-col items-center justify-start md:!max-w-[500px]">
             <ScrollButton className="overflow-visible">
               <span className="absolute -inset-1 animate-pulse rounded-sm bg-[#B3D235]/20" />
-              <ArrowDown className="relative z-10 h-5 w-5 transition-transform group-hover:translate-y-0.5" />
-              <span className="relative z-10">Solicite o Diagnóstico Digital da Index</span>
+              {/* <ArrowDown className="relative z-10 h-5 w-5 transition-transform group-hover:translate-y-0.5" /> */}
+              <span className="relative z-10">Quero meu diagnóstico gratuito →</span>
             </ScrollButton>
-            <span className="mt-3 text-sm text-white/50">
-              Descubra onde seu dinheiro está sendo mal investido
+            <span className="mt-3 text-center text-sm text-white/50">
+              Cada semana sem clareza é mais uma semana pagando por resultado que não vem
             </span>
           </div>
         </div>
@@ -93,22 +119,22 @@ export function HeroSection() {
         >
           <div className="flex flex-wrap items-center justify-center gap-6">
             <div className="flex items-center gap-2">
-              <Award className="size-4 text-[#B3D235]" />
-              <span className="text-sm font-medium text-white/60">23+ Anos de Experiência</span>
-            </div>
-            <div className="hidden h-4 w-px bg-white/15 md:block" />
-            <div className="flex items-center gap-2">
-              <Users className="size-4 text-[#00C3DE]" />
-              <span className="text-sm font-medium text-white/60">300+ Empresas Atendidas</span>
-            </div>
-            <div className="hidden h-4 w-px bg-white/15 md:block" />
-            <div className="flex items-center gap-2">
               <div className="flex">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="size-3 fill-[#B3D235] text-[#B3D235]" />
                 ))}
               </div>
-              <span className="text-sm font-medium text-white/60">5.0 Avaliação</span>
+              <span className="text-sm font-medium text-white/60">5.0 no Google</span>
+            </div>
+            <div className="hidden h-4 w-px bg-white/15 md:block" />
+            <div className="flex items-center gap-2">
+              <Users className="size-4 text-[#00C3DE]" />
+              <span className="text-sm font-medium text-white/60">300+ empresas atendidas</span>
+            </div>
+            <div className="hidden h-4 w-px bg-white/15 md:block" />
+            <div className="flex items-center gap-2">
+              <TrendingUp className="size-4 text-[#B3D235]" />
+              <span className="text-sm font-medium text-white/60">23 anos de resultado</span>
             </div>
           </div>
         </div>

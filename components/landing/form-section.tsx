@@ -6,8 +6,8 @@ import {
   CheckCircle2,
   Send,
   ArrowRight,
-  TrendingDown,
-  Target,
+  Gift,
+  Clock,
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
@@ -80,9 +80,9 @@ export function FormSection() {
   };
 
   const benefits = [
-    { icon: TrendingDown, text: "Menos desperdício" },
-    { icon: Target, text: "Mais estratégia" },
-    { icon: ShieldCheck, text: "Crescimento com segurança" },
+    { icon: Gift, text: "Diagnóstico 100% gratuito" },
+    { icon: Clock, text: "Relatório em 48h" },
+    { icon: ShieldCheck, text: "Sem compromisso de contratação" },
   ];
 
   if (isSubmitted) {
@@ -98,15 +98,36 @@ export function FormSection() {
               <CheckCircle2 className="size-10 text-[#212529]" />
             </div>
             <h2 className="text-2xl font-bold text-white md:text-3xl">
-              Solicitação enviada com sucesso!
+              Solicitação enviada com sucesso
             </h2>
-            <p className="mt-4 text-white/90">
-              Em breve, um de nossos especialistas entrará em contato para agendar seu Diagnóstico
-              Digital.
-            </p>
+
+            <div className="mt-8 space-y-4 text-left">
+              <p className="text-center text-sm font-semibold uppercase tracking-wider text-white/40">
+                O que acontece agora:
+              </p>
+              {[
+                { step: "1", text: "Nosso time analisa suas informações (até 24h)" },
+                {
+                  step: "2",
+                  text: "Um especialista entra em contato para agendar sua call de diagnóstico",
+                },
+                { step: "3", text: "Você recebe seu mapa completo em até 48h" },
+              ].map((item) => (
+                <div
+                  key={item.step}
+                  className="flex items-center gap-4 border border-white/10 bg-white/5 p-4"
+                >
+                  <div className="flex size-8 shrink-0 items-center justify-center bg-[#B3D235] text-sm font-bold text-[#212529]">
+                    {item.step}
+                  </div>
+                  <p className="text-white/90">{item.text}</p>
+                </div>
+              ))}
+            </div>
+
             <div className="mt-8 inline-flex items-center gap-2 border border-[#B3D235]/30 bg-[#B3D235]/10 px-4 py-2 text-sm text-[#B3D235]">
               <Sparkles className="size-4" />
-              Aguarde nosso contato em até 24h
+              Sua call será agendada em até 48h
             </div>
           </div>
         </div>
@@ -136,17 +157,16 @@ export function FormSection() {
           <div className="mb-10 text-center">
             <div className="mb-4 inline-flex items-center gap-2 border border-[#B3D235]/30 bg-[#B3D235]/10 px-4 py-2">
               <Sparkles className="size-5 text-[#B3D235]" />
-              <span className="text-sm font-semibold text-[#B3D235]">Última Etapa</span>
+              <span className="text-sm font-semibold text-[#B3D235]">Próximo passo</span>
             </div>
 
             <h2 className="text-2xl font-bold leading-tight text-white md:text-4xl lg:text-5xl">
-              Antes de investir mais em marketing,
-              <br />
-              <span className="text-[#B3D235]">invista em clareza.</span>
+              Vamos descobrir onde está o{" "}
+              <span className="text-[#B3D235]">vazamento</span>?
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-white/90">
-              Preencha o formulário abaixo e descubra se o Diagnóstico Digital da Index é o passo
-              que sua empresa precisa agora.
+              Preencha seus dados. Em 48h, você recebe seu diagnóstico completo — gratuito, sem
+              compromisso, com direção clara para escalar.
             </p>
 
             <div className="mt-8 flex flex-wrap justify-center gap-4 md:gap-6">
@@ -184,12 +204,15 @@ export function FormSection() {
                   name="nome"
                   required
                   className="w-full border border-[#495057] bg-[#373D42] px-4 py-3.5 text-[#F8F9FA] transition-all duration-300 placeholder:text-[#ADB5BD] focus:border-[#B3D235] focus:outline-none focus:ring-2 focus:ring-[#B3D235]/20"
-                  placeholder="Digite seu nome completo"
+                  placeholder="Como devemos te chamar?"
                 />
               </div>
 
               <div>
-                <label htmlFor="telefone" className="mb-2 block text-sm font-medium text-[#F8F9FA]">
+                <label
+                  htmlFor="telefone"
+                  className="mb-2 block text-sm font-medium text-[#F8F9FA]"
+                >
                   Telefone *
                 </label>
                 <input
@@ -198,7 +221,7 @@ export function FormSection() {
                   name="telefone"
                   required
                   className="w-full border border-[#495057] bg-[#373D42] px-4 py-3.5 text-[#F8F9FA] transition-all duration-300 placeholder:text-[#ADB5BD] focus:border-[#B3D235] focus:outline-none focus:ring-2 focus:ring-[#B3D235]/20"
-                  placeholder="(00) 00000-0000"
+                  placeholder="Qual número para contato?"
                 />
               </div>
 
@@ -212,7 +235,7 @@ export function FormSection() {
                   name="email"
                   required
                   className="w-full border border-[#495057] bg-[#373D42] px-4 py-3.5 text-[#F8F9FA] transition-all duration-300 placeholder:text-[#ADB5BD] focus:border-[#B3D235] focus:outline-none focus:ring-2 focus:ring-[#B3D235]/20"
-                  placeholder="seu@email.com"
+                  placeholder="Seu melhor e-mail"
                 />
               </div>
 
@@ -226,7 +249,7 @@ export function FormSection() {
                   name="empresa"
                   required
                   className="w-full border border-[#495057] bg-[#373D42] px-4 py-3.5 text-[#F8F9FA] transition-all duration-300 placeholder:text-[#ADB5BD] focus:border-[#B3D235] focus:outline-none focus:ring-2 focus:ring-[#B3D235]/20"
-                  placeholder="Nome da sua empresa"
+                  placeholder="Nome da empresa"
                 />
               </div>
 
@@ -235,7 +258,7 @@ export function FormSection() {
                   htmlFor="funcionarios"
                   className="mb-2 block text-sm font-medium text-[#F8F9FA]"
                 >
-                  Quantidade de funcionários
+                  Tamanho da empresa
                 </label>
                 <select
                   id="funcionarios"
@@ -267,15 +290,16 @@ export function FormSection() {
                   />
                 </div>
                 <label htmlFor="lgpd-consent" className="text-sm text-[#F8F9FA]">
-                  Concordo em receber contato da equipe INDEX sobre o Diagnóstico Digital.{" "}
+                  Quero receber meu diagnóstico gratuito e estou de acordo com os termos da{" "}
                   <a href="#" className="text-[#B3D235] hover:underline">
                     Política de Privacidade
                   </a>
+                  .
                 </label>
               </div>
               {submitAttempted && !consentGiven && (
                 <p className="mt-2 text-sm text-red-400">
-                  Você precisa aceitar os termos para continuar.
+                  Por favor, aceite os termos acima para receber seu diagnóstico.
                 </p>
               )}
             </div>
@@ -293,16 +317,16 @@ export function FormSection() {
               ) : (
                 <>
                   <Send className="size-5" />
-                  Solicitar Diagnóstico Digital
-                  <ArrowRight className="size-5" />
+                  Quero meu diagnóstico gratuito →
                 </>
               )}
             </button>
 
             <p className="mt-5 text-center text-sm text-[#CED4DA]">
-              Ao enviar, você concorda em receber o contato da equipe Index.
+              <span className="text-[#00C3DE]">🔒 Seus dados são 100% seguros</span> e nunca serão
+              compartilhados.
               <br />
-              <span className="text-[#00C3DE]">Seus dados estão seguros conosco.</span>
+              Ao enviar, você autoriza o contato da Index sobre seu diagnóstico.
             </p>
           </form>
         </div>
