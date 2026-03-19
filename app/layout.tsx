@@ -34,7 +34,7 @@ export const metadata = {
     siteName: "INDEX Digital Commerce",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.webp",
         width: 1200,
         height: 630,
         alt: "INDEX - Diagnóstico Digital",
@@ -45,7 +45,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Diagnóstico Digital | INDEX Digital Commerce",
     description: "Descubra onde seu dinheiro está sendo mal investido em marketing digital.",
-    images: ["/og-image.png"],
+    images: ["/og-image.webp"],
   },
   alternates: {
     canonical: "https://diagnostico.indexdc.com.br",
